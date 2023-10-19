@@ -8,9 +8,9 @@ MontyContext_t MontyContext = {NULL, NULL, NULL, 0};
  */
 int main(int argc, char *argv[])
 {
-	char *line_content;
-	FILE *monty_file;
-	size_t buffer_size = 0;
+	char *content;
+	FILE *file;
+	size_t size = 0;
 	ssize_t read_line = 1;
 	stack_t *stack = NULL;
 	unsigned int counter = 0;
@@ -20,27 +20,26 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-	monty_file = fopen(argv[1], "r");
-	MontyContext.file = monty_file;
-	if (!monty_file)
+	file = fopen(argv[1], "r");
+	MontyContext.file = file;
+	if (!file)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
 	while (read_line > 0)
 	{
-		line_content = NULL;
-		read_line = getline(&line_content, &buffer_size, monty_file);
-		MontyContext.content = line_content;
+		content = NULL;
+		read_line = getline(&content, &size, file);
+		MontyContext.content = content;
 		counter++;
-
 		if (read_line > 0)
 		{
-			execute(line_content, &stack, counter, monty_file);
+			execute(content, &stack, counter, file);
 		}
-		free(line_content);
+		free(content);
 	}
 	clear_stack(stack);
-	fclose(monty_file);
+	fclose(file);
 return (0);
 }
