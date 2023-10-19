@@ -4,6 +4,7 @@
  * @head: Pointer to the stack head
  * @counter: Line number
  * Return: No return value
+ *
  */
 void pop(stack_t **head, unsigned int counter)
 {

@@ -52,9 +52,6 @@ typedef struct MontyContext_s
 	int stackOrQueue;
 }  MontyContext_t;
 extern MontyContext_t MontyContext;
-char *_realloc(char *ptr, unsigned int old_size, unsigned int new_size);
-ssize_t getstdin(char **lineptr, int file);
-char  *clean_line(char *content);
 void push(stack_t **head, unsigned int number);
 void pall(stack_t **head, unsigned int number);
 void pint (stack_t **head, unsigned int number);
