@@ -1,16 +1,16 @@
 #include "monty.h"
 MontyContext_t MontyContext = {NULL, NULL, NULL, 0};
 /**
-* main - monty code interpreter
-* @argc: number of arguments
-* @argv: monty file location
-* Return: 0 on success
-*/
+ * main - Monty code interpreter
+ * @argc: Number of command-line arguments
+ * @argv: Array of command-line argument strings
+ * Return: 0 on successful execution
+ */
 int main(int argc, char *argv[])
 {
-	char *content;
-	FILE *file;
-	size_t size = 0;
+	char *line_content;
+	FILE *monty_file;
+	size_t buffer_size = 0;
 	ssize_t read_line = 1;
 	stack_t *stack = NULL;
 	unsigned int counter = 0;
@@ -20,26 +20,33 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-	file = fopen(argv[1], "r");
-	MontyContext.file = file;
-	if (!file)
+
+	monty_file = fopen(argv[1], "r");
+	MontyContext.file = monty_file;
+
+	if (!monty_file)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
+
 	while (read_line > 0)
 	{
-		content = NULL;
-		read_line = getline(&content, &size, file);
-		MontyContext.content = content;
+		line_content = NULL;
+		read_line = getline(&line_content, &buffer_size, monty_file);
+		MontyContext.content = line_content;
 		counter++;
+
 		if (read_line > 0)
 		{
-			execute(content, &stack, counter, file);
+			execute(line_content, &stack, counter, monty_file);
 		}
-		free(content);
+
+		free(line_content);
 	}
+
 	clear_stack(stack);
-	fclose(file);
-return (0);
+	fclose(monty_file);
+
+	return (0);
 }
