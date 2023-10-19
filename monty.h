@@ -37,7 +37,7 @@ typedef struct instruction_s
 } instruction_t;
 
 /**
- * MontyContext_s Structure - Contains variables: arg, file,
+ * struct MontyContext_s Structure - Contains variables: arg, file,
  * line content, and stack/queue flag.
  * @arg: Holds a value.
  * @file: Points to the Monty file.
