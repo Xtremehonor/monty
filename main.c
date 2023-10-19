@@ -1,4 +1,8 @@
 #include "monty.h"
+/**
+ * do_nothing - does nothing.
+ */
+void do_nothing(void);
 MontyContext_t MontyContext = {NULL, NULL, NULL, 0};
 /**
  * main - Monty code interpreter
@@ -45,4 +49,8 @@ int main(int argc, char *argv[])
 	clear_stack(stack);
 	fclose(monty_file);
 	return (0);
+}
+
+void do_nothing(void)
+{
 }
