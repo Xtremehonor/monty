@@ -7,28 +7,28 @@
  */
 void swap(stack_t **head, unsigned int counter)
 {
-    stack_t *current;
-    int length = 0, temp;
+stack_t *current;
+int length = 0, temp;
 
-    current = *head;
+current = *head;
 
-    while (current)
-    {
-        current = current->next;
-        length++;
-    }
+while (current)
+{
+	current = current->next;
+	length++;
+}
 
-    if (length < 2)
-    {
-        fprintf(stderr, "L%d: cannot swap, stack too short\n", counter);
-        fclose(MontyContext.file);
-        free(MontyContext.content);
-        free_stack(*head);
-        exit(EXIT_FAILURE);
-    }
+if (length < 2)
+{
+	fprintf(stderr, "L%d: cannot swap, stack too short\n", counter);
+	fclose(MontyContext.file);
+	free(MontyContext.content);
+	free_stack(*head);
+	exit(EXIT_FAILURE);
+}
 
-    current = *head;
-    temp = current->n;
-    current->n = current->next->n;
-    current->next->n = temp;
+	current = *head;
+	temp = current->n;
+	current->n = current->next->n;
+	current->next->n = temp;
 }
