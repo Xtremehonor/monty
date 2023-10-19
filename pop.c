@@ -8,7 +8,7 @@
  */
 void pop(stack_t **head, unsigned int counter)
 {
-	stack_t *stack_head;;
+	stack_t *stack_head;
 
 	if (*head == NULL)
 	{
