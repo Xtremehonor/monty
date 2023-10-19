@@ -20,7 +20,7 @@
 
 	if (stackLength < 2)
 	{
-		fprintf(stderr, "L%d: cannot add, stack too short\n", counter);
+		fprintf(stderr, "L%d: can't add, stack too short\n", counter);
 		fclose(MontyContext.file);
 		free(MontyContext.content);
 		clear_stack(*head);
