@@ -1,22 +1,23 @@
 #include "monty.h"
 /**
- * _div - divides the top two elements of the stack.
+ * s_div - divides the top two elements of the stack.
  * @head: stack head
  * @counter: line_number
  * Return: no return
 */
-void _div(stack_t **head, unsigned int counter)
+void s_div(stack_t **head, unsigned int counter)
 {
-	stack_t *h;
-	int len = 0, aux;
+	stack_t *current_node;
+	int node_count = 0, result;
 
-	h = *head;
-	while (h)
+	current_node = *head;
+	while (current_node)
 	{
-		h = h->next;
-		len++;
+		current_node = current_node->next;
+		node_count++;
 	}
-	if (len < 2)
+
+	if (node_count < 2)
 	{
 		fprintf(stderr, "L%d: can't div, stack too short\n", counter);
 		fclose(MontyContext.file);
@@ -24,8 +25,9 @@ void _div(stack_t **head, unsigned int counter)
 		clear_stack(*head);
 		exit(EXIT_FAILURE);
 	}
-	h = *head;
-	if (h->n == 0)
+
+	current_node = *head;
+	if (current_node->n == 0)
 	{
 		fprintf(stderr, "L%d: division by zero\n", counter);
 		fclose(MontyContext.file);
@@ -33,8 +35,8 @@ void _div(stack_t **head, unsigned int counter)
 		clear_stack(*head);
 		exit(EXIT_FAILURE);
 	}
-	aux = h->next->n / h->n;
-	h->next->n = aux;
-	*head = h->next;
-	free(h);
+	result = current_node->next->n / current_node->n;
+	current_node->next->n = result;
+	*head = current_node->next;
+	free(current_node);
 }
