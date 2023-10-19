@@ -26,7 +26,6 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-
 	monty_file = fopen(argv[1], "r");
 	MontyContext.file = monty_file;
 
@@ -35,14 +34,9 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-
 	while (read_line > 0)
 	{
-		for (size_t i = 0; i < buffer_size; i++)
-		{
-			line_content[i] = '\0'; /* Initialize buffer */
-		}
-
+		line_content = NULL;
 		read_line = getline(&line_content, &buffer_size, monty_file);
 		MontyContext.content = line_content;
 		counter++;
@@ -51,13 +45,13 @@ int main(int argc, char *argv[])
 		{
 			execute(line_content, &stack, counter, monty_file);
 		}
+		free(line_content);
 	}
 
-	free(line_content);
 	clear_stack(stack);
 	fclose(monty_file);
 	return (0);
-	}
+}
 
 void do_nothing(void)
 {
