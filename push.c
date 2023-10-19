@@ -7,22 +7,22 @@
 */
 void s_push(stack_t **head, unsigned int counter)
 {
-	int n, j = 0, flag = 0;
+int n, j = 0, flag = 0;
 
-	if (MontyContext.arg)
+if (MontyContext.arg)
+{
+	if (MontyContext.arg[0] == '-')
+		j++;
+	for (; MontyContext.arg[j] != '\0'; j++)
 	{
-		if (MontyContext.arg[0] == '-')
-			j++;
-		for (; MontyContext.arg[j] != '\0'; j++)
-		{
-			if (MontyContext.arg[j] > 57 || MontyContext.arg[j] < 48)
-				flag = 1; }
-		if (flag == 1)
-		{ fprintf(stderr, "L%d: usage: push integer\n", counter);
-			fclose(MontyContext.file);
-			free(MontyContext.content);
-			clear_stack(*head);
-			exit(EXIT_FAILURE); }}
+		if (MontyContext.arg[j] > 57 || MontyContext.arg[j] < 48)
+			flag = 1; }
+	if (flag == 1)
+	{ fprintf(stderr, "L%d: usage: push integer\n", counter);
+		fclose(MontyContext.file);
+		free(MontyContext.content);
+		clear_stack(*head);
+		exit(EXIT_FAILURE); }}
 	else
 	{ fprintf(stderr, "L%d: usage: push integer\n", counter);
 		fclose(MontyContext.file);
