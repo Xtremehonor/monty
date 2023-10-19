@@ -22,7 +22,6 @@ int main(int argc, char *argv[])
 	}
 	monty_file = fopen(argv[1], "r");
 	MontyContext.file = monty_file;
-
 	if (!monty_file)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
@@ -41,8 +40,7 @@ int main(int argc, char *argv[])
 		}
 		free(line_content);
 	}
-
 	clear_stack(stack);
 	fclose(monty_file);
-	return (0);
+return (0);
 }
