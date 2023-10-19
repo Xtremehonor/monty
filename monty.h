@@ -42,6 +42,7 @@ typedef struct instruction_s
  * @file: Points to the Monty file.
  * @content: Stores the content of a line.
  * @stackOrQueue: Indicates a flag for switching between stack and queue.
+ *
  * Description: Serves as a container for passing values throughout the program.
  */
 typedef struct MontyContext_s
