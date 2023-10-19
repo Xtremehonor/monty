@@ -53,7 +53,7 @@ typedef struct MontyContext_s
 	int stackOrQueue;
 }  MontyContext_t;
 extern MontyContext_t MontyContext;
-void push(stack_t **head, unsigned int number);
+void s_push(stack_t **head, unsigned int number);
 void pall(stack_t **head, unsigned int number);
 void pint (stack_t **head, unsigned int number);
 int execute(char *content, stack_t **head, unsigned int counter, FILE *file);
@@ -63,7 +63,7 @@ void pop(stack_t **head, unsigned int counter);
 void swap(stack_t **head, unsigned int counter);
 void nop(stack_t **head, unsigned int counter);
 void sub(stack_t **head, unsigned int counter);
-void div(stack_t **head, unsigned int counter);
+void _div(stack_t **head, unsigned int counter);
 void mul(stack_t **head, unsigned int counter);
 void mod(stack_t **head, unsigned int counter);
 void pchar(stack_t **head, unsigned int counter);
