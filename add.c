@@ -1,32 +1,35 @@
-#include "monty.h"
-/**
- * f_add - adds the top two elements of the stack.
- * @head: stack head
- * @counter: line_number
- * Return: no return
-*/
-void f_add(stack_t **head, unsigned int counter)
-{
-	stack_t *h;
-	int len = 0, aux;
+	#include "monty.h"
+	/**
+	 * add - Adds the top two elements of the stack.
+	 * @head: Pointer to the stack head
+	 * @counter: Line number
+	 * Return: No return value
+	 */
+	void add(stack_t **head, unsigned int counter)
+	{
+	stack_t *current;
+	int stackLength = 0, sum;
 
-	h = *head;
-	while (h)
+	current = *head;
+
+	while (current)
 	{
-		h = h->next;
-		len++;
+		current = current->next;
+		stackLength++;
 	}
-	if (len < 2)
+
+	if (stackLength < 2)
 	{
-		fprintf(stderr, "L%d: can't add, stack too short\n", counter);
+		fprintf(stderr, "L%d: cannot add, stack too short\n", counter);
 		fclose(MontyContext.file);
 		free(MontyContext.content);
 		clear_stack(*head);
 		exit(EXIT_FAILURE);
 	}
-	h = *head;
-	aux = h->n + h->next->n;
-	h->next->n = aux;
-	*head = h->next;
-	free(h);
-}
+
+	current = *head;
+	sum = current->n + current->next->n;
+	current->next->n = sum;
+	*head = current->next;
+	free(current);
+	}
