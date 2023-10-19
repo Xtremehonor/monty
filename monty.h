@@ -36,13 +36,14 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 /**
- * struct MontyContext_s Structure - Contains variables: arg, file,
+ * struct MontyContext_s - Contains variables: arg, file,
  * line content, and stack/queue flag.
  * @arg: Holds a value.
  * @file: Points to the Monty file.
  * @content: Stores the content of a line.
  * @stackOrQueue: Indicates a flag for switching between stack and queue.
- * Description: Serves as a container for passing values throughout the program.
+ * Description: Serves as a container for
+ * passing values throughout the program.
  */
 typedef struct MontyContext_s
 {
