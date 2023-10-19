@@ -22,7 +22,7 @@ void f_mod(stack_t **head, unsigned int counter)
 		fprintf(stderr, "L%d: can't mod, stack too short\n", counter);
 		fclose(MontyContext.file);
 		free(MontyContext.content);
-		free_stack(*head);
+		clear_stack(*head);
 		exit(EXIT_FAILURE);
 	}
 	h = *head;
@@ -31,7 +31,7 @@ void f_mod(stack_t **head, unsigned int counter)
 		fprintf(stderr, "L%d: division by zero\n", counter);
 		fclose(MontyContext.file);
 		free(MontyContext.content);
-		free_stack(*head);
+		clear_stack(*head);
 		exit(EXIT_FAILURE);
 	}
 	aux = h->next->n % h->n;

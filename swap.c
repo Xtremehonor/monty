@@ -23,7 +23,7 @@ if (length < 2)
 	fprintf(stderr, "L%d: cannot swap, stack too short\n", counter);
 	fclose(MontyContext.file);
 	free(MontyContext.content);
-	free_stack(*head);
+	clear_stack(*head);
 	exit(EXIT_FAILURE);
 }
 

@@ -18,7 +18,7 @@ void f_sub(stack_t **head, unsigned int counter)
 		fprintf(stderr, "L%d: can't sub, stack too short\n", counter);
 		fclose(MontyContext.file);
 		free(MontyContext.content);
-		free_stack(*head);
+		clear_stack(*head);
 		exit(EXIT_FAILURE);
 	}
 	aux = *head;

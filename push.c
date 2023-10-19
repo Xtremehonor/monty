@@ -22,13 +22,13 @@ void push(stack_t **head, unsigned int counter)
 		{ fprintf(stderr, "L%d: usage: push integer\n", counter);
 			fclose(MontyContext.file);
 			free(MontyContext.content);
-			free_stack(*head);
+			clear_stack(*head);
 			exit(EXIT_FAILURE); }}
 	else
 	{ fprintf(stderr, "L%d: usage: push integer\n", counter);
 		fclose(MontyContext.file);
 		free(MontyContext.content);
-		free_stack(*head);
+		clear_stack(*head);
 		exit(EXIT_FAILURE); }
 	n = atoi(MontyContext.arg);
 	if (MontyContext.stackOrQueue == 0)
