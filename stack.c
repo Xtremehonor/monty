@@ -1,10 +1,12 @@
 #include "monty.h"
 /**
- * s_stack - prints the top
- * @head: stack head
- * @counter: line_number
- * Return: no return
-*/
+ * s_stack - Sets the format of the data
+ *  to a stack (LIFO)
+ * @head: Pointer to the head of the stack
+ * @counter: Line number (unused)
+ *
+ * Return: No return value
+ */
 void s_stack(stack_t **head, unsigned int counter)
 {
 	(void)head;
