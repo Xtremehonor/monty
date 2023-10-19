@@ -23,7 +23,6 @@ typedef struct stack_s
 	struct stack_s *prev;
 	struct stack_s *next;
 } stack_t;
-
 /**
  * struct instruction_s - opcode and its function
  * @opcode: the opcode
@@ -37,7 +36,6 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
-
 /**
  * MontyContext_s Structure - Contains variables: arg, file,
  * line content, and stack/queue flag.
@@ -54,9 +52,7 @@ typedef struct MontyContext_s
 	char *content;
 	int stackOrQueue;
 }  MontyContext_t;
-
 extern MontyContext_t MontyContext;
-
 char *_realloc(char *ptr, unsigned int old_size, unsigned int new_size);
 ssize_t getstdin(char **lineptr, int file);
 char  *clean_line(char *content);
