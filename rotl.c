@@ -1,9 +1,10 @@
 #include "monty.h"
 /**
-  * rotl - rotates the stack to the top
-  * @head: stack head
-  * @counter: line_number
-  * Return: no return
+ * rotl - Rotates the stack to the top
+ * @head: Pointer to the head of the stack
+ * @counter: Line number
+ *
+ * Return: No return value
  */
 void rotl(stack_t **head,  __attribute__((unused)) unsigned int counter)
 {
