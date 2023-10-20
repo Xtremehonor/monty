@@ -1,9 +1,5 @@
 #include "monty.h"
-/**
- * do_nothing - This function does nothing.
- *
- * Return: No return value.
- */
+
 void do_nothing(void);
 MontyContext_t MontyContext = {NULL, NULL, NULL, 0};
 /**
@@ -52,7 +48,11 @@ clear_stack(stack);
 fclose(monty_file);
 return (0);
 }
-
+/**
+ * do_nothing - This function does nothing.
+ *
+ * Return: No return value.
+ */
 void do_nothing(void)
 {
 }
