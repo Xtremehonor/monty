@@ -4,7 +4,6 @@
  * Return: no return
  */
 void do_nothing(void);
-
 MontyContext_t MontyContext = {NULL, NULL, NULL, 0};
 /**
  * main - Monty code interpreter
