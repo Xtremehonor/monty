@@ -1,6 +1,7 @@
 #include "monty.h"
 /**
- * pchar - Prints the character at the top of the stack, followed by a new line.
+ * pchar - Prints the character at the top
+ * of the stack, followed by a new line.
  * @head: Pointer to the head of the stack.
  * @counter: Line number.
  * Return: No return.
